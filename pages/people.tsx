@@ -5,7 +5,6 @@ import Head from "next/head";
 import axios from "axios"
 import { Box, Avatar, Heading, Text, Button,} from "@chakra-ui/react";
 import React, { ReactNode } from "react";
-import { contextTods, userDta } from "./utils/types";
 import Link  from "next/link"
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -89,7 +88,7 @@ const people = ({ data }:any) => {
   );
 };
 
-export async function getStaticProps(context: contextTods) {
+export async function getStaticProps(context:any) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
   const data = await res.json();
   return {
