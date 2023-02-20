@@ -9,7 +9,7 @@ import { contextTods, userDta } from "./utils/types";
 import Link  from "next/link"
 import Image from "next/image";
 import { useRouter } from "next/router";
-const people = ({ data }:userDta) => {
+const people = ({ data }:any) => {
     const router=useRouter();
   console.log(data);
  
@@ -40,10 +40,7 @@ const people = ({ data }:userDta) => {
         textAlign={"center"}
       >
         {data.map(
-          (el: {
-            [x: string]: ReactNode;
-            id: React.Key | null | undefined;
-          }) => (
+          (el:any) => (
           
             <Box
               key={el.id}
@@ -56,7 +53,7 @@ const people = ({ data }:userDta) => {
                 m=" 4 auto"
                 size={"xl"}
                 src={""}
-                alt={"name"}
+               
                 // mb={4}
                 pos={"relative"}
                 _after={{
@@ -79,7 +76,7 @@ const people = ({ data }:userDta) => {
                 {el.address.street} {el.address.suite}..
               </Text>
               
-              <Button  onClick={handleClick} borderRadius={"20px"} bg={"blue.300"} padding={"0 35px"} color={'white'}>
+              <Button  onClick={()=>handleClick(el.id)} borderRadius={"20px"} bg={"blue.300"} padding={"0 35px"} color={'white'}>
                 Get Todos
               </Button>
             
